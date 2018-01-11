@@ -1,9 +1,7 @@
 //requiring dependencies
 const express = require('express');
 const app = express();
-const request = require('request');
 
-const crypto = require('crypto');
 
 //body parsers
 var bodyParser = require('body-parser');
@@ -11,14 +9,30 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
+//establishes our views and view engine **when render() is called, this is the engine used
+app.set('views', './views');
+app.engine('ejs', require('ejs').renderFile);
+app.set('view engine', 'ejs');
 
-//
-var timeStamp = Date.now();
-console.log(timeStamp);
-var string = timeStamp + '0db0df8485cf3ee023e90e1f678a2a72d980c9b0' + '3e31c7147f9db0cad29608f49fb9488f';
+//uses public folder to display static files
+app.use(express.static(__dirname + '/public'));
 
-var hash = crypto.createHash('md5').update(string).digest('hex');
-console.log(hash);
+
+
+
+/**************
+//Routes
+/**************/
+
+
+//sets main endpoint to display index.html
+app.get('/', function homepage (req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
+
+//requires route endpoints from routes.js
+var routes = require('./config/routes.js');
+app.use(routes);
 
 
 // listen on port 3000
