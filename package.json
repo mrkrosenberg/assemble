@@ -20,7 +20,9 @@
   "homepage": "https://github.com/mrkrosenberg/assemble#readme",
   "dependencies": {
     "bcrypt": "^1.0.3",
+    "crypto": "^1.0.1",
     "express": "^4.16.2",
-    "mongo": "^0.1.0"
+    "mongo": "^0.1.0",
+    "request": "^2.83.0"
   }
 }
