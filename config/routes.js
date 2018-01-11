@@ -44,7 +44,27 @@ router.get('/api', function searchMarvel (req, res){
 		// console.log(typeof(body));
 		var results = JSON.parse(body);
 		// console.log(typeof(results));
-		console.log(results.data.results[0].name);
+		// console.log(results.data.results[0].name);
+
+		var charImage = results.data.results[0].thumbnail.path + '.' + results.data.results[0].thumbnail.extension;
+		// console.log(charImage);
+
+		//creates new character model from CharacterSchema
+		var character = new db.Character({
+			name : results.data.results[0].name,
+			description : results.data.results[0].description,
+			image : charImage
+		});
+
+		character.save(function(err, char){
+			if (err) {
+				console.log(err);
+			} else {
+				console.log('New character ' + char.name + ' saved to database');
+			}
+
+		});
+
 	});
 });
 
