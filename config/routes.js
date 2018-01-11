@@ -9,6 +9,9 @@ const router = express.Router();
 //starts express application
 const app = express();
 
+//requires model schemas
+let db = require('../models');
+
 //body parsers
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,11 +21,6 @@ app.use(bodyParser.json());
 const key = require('../env.js').key;
 const pubKey = require('../env.js').pubKey;
 
-//Hardcoded seed data
-var team = {
-	name : 'superheroes',
-	number : 10
-};
 
 //Index
 router.get('/api', function searchMarvel (req, res){
