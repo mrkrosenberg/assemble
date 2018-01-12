@@ -26,7 +26,24 @@ app.use(bodyParser.json());
 router.route('/search')
 	.get(teamController.searchMarvel);
 
-//Routes for Users
+//Routes for Users **connects to users controller imported into this file
+
+//user authentication function
+
+//router.route('/signup')
+	//.get(controllers.function)
+	//.post(controllers.function)
+
+//router.route('/login')
+	//.get(controllers.function)
+	//.post(controllers.function)
+
+//router.route('/logout')
+	//.get(controllers.function)
+	//.post(controllers.function)
+
+//router.route('/secret')
+	//.get(userAuthentication, controllers.function)
 
 
 //exports
