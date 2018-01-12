@@ -1,6 +1,10 @@
 //requiring dependencies
 const express = require('express');
 const app = express();
+const passport     = require('passport');
+const flash        = require('connect-flash');
+const morgan       = require('morgan');
+const session      = require('express-session');
 
 
 //body parsers
@@ -14,6 +18,12 @@ app.set('views', './views');
 app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
+//sets up a user session to store data and cookies
+app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' })); 
+app.use(passport.initialize());
+app.use(passport.session()); 
+app.use(flash()); 
+
 //uses public folder to display static files
 app.use(express.static(__dirname + '/public'));
 
@@ -24,13 +34,6 @@ app.use(express.static(__dirname + '/public'));
 //Routes
 /**************/
 
-
-//sets main endpoint to display index.html
-app.get('/', function homepage (req, res) {
-  res.sendFile(__dirname + '/views/index.html');
-});
-
-//requires route endpoints from routes.js
 var routes = require('./config/routes.js');
 app.use(routes);
 
