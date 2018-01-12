@@ -34,6 +34,11 @@ app.use(express.static(__dirname + '/public'));
 //Routes
 /**************/
 
+//sets main endpoint to display index.html
+router.route('/', function homepage (req, res) {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
 var routes = require('./config/routes.js');
 app.use(routes);
 
