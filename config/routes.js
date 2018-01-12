@@ -1,6 +1,8 @@
 //dependencies
 const express = require('express');
-var methodOverride = require('method-override');
+const methodOverride = require('method-override');
+const ejs = require('ejs');
+
 
 //express' router function
 const router = express.Router();
