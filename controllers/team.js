@@ -64,6 +64,7 @@ function searchMarvel (req, res){
 	});
 }
 
+
 module.exports.searchMarvel = searchMarvel;
 
 
