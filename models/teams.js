@@ -6,7 +6,8 @@ const mongoose = require('mongoose');
 var CharacterSchema = mongoose.Schema({
 	name : String,
 	description : String,
-	image : String
+	image : String,
+	site : String
 });
 
 var newCharacter = mongoose.model('newCharacter', CharacterSchema);

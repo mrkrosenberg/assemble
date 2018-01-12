@@ -1,10 +1,10 @@
 //requiring dependencies
-const express = require('express');
-const app = express();
-const passport     = require('passport');
-const flash        = require('connect-flash');
-const morgan       = require('morgan');
-const session      = require('express-session');
+const express 	= require('express');
+const app 		= express();
+const passport  = require('passport');
+const flash     = require('connect-flash');
+const morgan    = require('morgan');
+const session   = require('express-session');
 
 
 //body parsers
