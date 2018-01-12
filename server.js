@@ -35,7 +35,7 @@ app.use(express.static(__dirname + '/public'));
 /**************/
 
 //sets main endpoint to display index.html
-router.route('/', function homepage (req, res) {
+app.route('/', function homepage (req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
