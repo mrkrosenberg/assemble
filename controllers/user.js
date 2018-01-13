@@ -1,8 +1,8 @@
 const passport = require('passport');
 
 //GET /signup
-function getSignUp(req, res){
-	res.render('signup');
+function getSignUp(req, res, next){
+	res.render('signup', { message: req.flash('signupMessage') });
 }
 
 //POST /signup
@@ -18,24 +18,28 @@ function postSignUp(req, res, next){
 //*************************
 
 //GET /login
-function getLogin(request, response, next) {
-	response.render('login.ejs', {message : request.flash('loginMessage')}); 
+function getLogin(req, res, next) {
+	res.render('login', {message : req.flash('loginMessage')}); 
 }
 
 //POST /login
-function postLogin(request, response, next) {
+function postLogin(req, res, next) {
 	var loginStrategy = passport.authenticate('local-login', {
 		successRedirect : '/',
 		failureRedirect : '/login',
 		failureFlash : true
 	});
 
-	return loginStrategy(request, response, next);
+	return loginStrategy(req, res, next);
 }
 
 //*************************
 
 //GET /logout
+function getLogout(request, response) {
+	request.logout();
+	response.redirect('/');
+}
 
 //*************************
 
@@ -44,6 +48,7 @@ function postLogin(request, response, next) {
 //Exports
 module.exports = {
 	getSignUp : getSignUp,
-	postSignUp : postSignUp
-	//logout : logout,
+	postSignUp : postSignUp,
+	getLogin : getLogin,
+	postLogin : postLogin
 };

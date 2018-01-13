@@ -31,7 +31,7 @@ module.exports = function(passport){
 			if (err) return callback(err);
 
 			if(user){
-				console.log('super sanity check');
+				// console.log('super sanity check');
 				return callback(null, false, req.flash('signupMessage', 'This email is already in use'));
 			} else {
 				// console.log('new user created');

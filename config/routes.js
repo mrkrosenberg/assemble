@@ -35,9 +35,9 @@ router.route('/signup')
 	.get(usersController.getSignUp)
 	.post(usersController.postSignUp);
 
-//router.route('/login')
-	//.get(controllers.function)
-	//.post(controllers.function)
+router.route('/login')
+	.get(usersController.getLogin)
+	.post(usersController.postLogin);
 
 //router.route('/logout')
 	//.get(controllers.function)
