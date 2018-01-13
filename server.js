@@ -27,8 +27,15 @@ app.use(flash());
 //uses public folder to display static files
 app.use(express.static(__dirname + '/public'));
 
+//sets the strategies
+require('./config/passport')(passport);
 
-
+//makes the req.user object available everywhere
+app.use(function(req, res, next){					//always include next in the parameters in order to use it,
+	//
+	res.locals.currentUser = req.user;  //defines currentUser here as a property of res.locals
+	next();
+});
 
 /**************
 //Routes

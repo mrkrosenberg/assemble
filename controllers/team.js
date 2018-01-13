@@ -21,13 +21,18 @@ function searchMarvel (req, res){
 	var timeStamp = Date.now();
 	// console.log(timeStamp);
 	var string = timeStamp + key;
-
 	var hash = crypto.createHash('md5').update(string).digest('hex');
 	// console.log(hash);
 
 	//api url
 	var apiUrl = 'https://gateway.marvel.com:443/v1/public/characters?name=' + req.query.searchName + '&ts=' + timeStamp + '&apikey=' + pubKey + '&hash=' + hash;
 	// console.log(apiUrl);
+
+//****************************************
+// character background image api request
+//****************************************
+
+	
 	// res.json(team);
 	request(apiUrl, function(err, response, body){
 		// console.log(typeof(body));
@@ -35,13 +40,14 @@ function searchMarvel (req, res){
 		// console.log(typeof(results));
 		// console.log(results.data.results[0].name);
 
-		var charImage = result.data.results[0].thumbnail.path + '.' + result.data.results[0].thumbnail.extension;
+//**************************************
+// character website link - not working
+//**************************************
+		// var charImage = result.data.results[0].thumbnail.path + '.' + result.data.results[0].thumbnail.extension;
 		// console.log(charImage);
-
-		console.log(result.data.results[1]);
-
-		var charSite = result.data.results[1] + '&ts=' + timeStamp + '&apikey=' + pubKey + '&hash=' + hash;
-		console.log('character website: ', charSite);
+		// console.log(result.data.results[1]);
+		// var charSite = result.data.results[1] + '&ts=' + timeStamp + '&apikey=' + pubKey + '&hash=' + hash;
+		// console.log('character website: ', charSite);
 
 
 		//creates new character model from CharacterSchema

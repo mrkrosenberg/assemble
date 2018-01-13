@@ -12,6 +12,7 @@ const app = express();
 
 //import controller functions
 const teamController = require('../controllers/team');
+const usersController = require('../controllers/user');
 
 
 
@@ -30,9 +31,9 @@ router.route('/search')
 
 //user authentication function
 
-//router.route('/signup')
-	//.get(controllers.function)
-	//.post(controllers.function)
+router.route('/signup')
+	.get(usersController.getSignUp)
+	.post(usersController.postSignUp);
 
 //router.route('/login')
 	//.get(controllers.function)
