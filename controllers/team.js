@@ -70,7 +70,7 @@ function searchMarvel (req, res){
 	});
 
 //Functionality for adding new team members to the member page
-	res.render('../views/team.ejs');
+	res.render('../views/teamPage.ejs');
 
 }
 

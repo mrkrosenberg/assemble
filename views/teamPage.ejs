@@ -7,7 +7,10 @@
 
 <!-- Bootstrap CDN's -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+	<script rel="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- jQuery CDN -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 	<title>Your Team</title>
 	
@@ -44,14 +47,21 @@
 
 
 
-<!-- Character search for, -->
+<!-- Character search form -->
+<div>
 	<form class="teamMember" action="/search" method="GET">
 		<label for="searchName">Search for Character</label>
 			<input type="text" name="searchName">
 
 		<button class="" type="submit">Search</button>
 	</form>
+</div>
 
+<!-- Character selected modal -->
+<div></div>
+
+<!-- JS -->
+	<script type="text/javascript" src="../public/scripts/buildTeam.js"></script>
 
 </body>
 </html>

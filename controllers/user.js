@@ -8,7 +8,7 @@ function getSignUp(req, res, next){
 //POST /signup
 function postSignUp(req, res, next){
 	let signupStrategy = passport.authenticate('local-signup', {
-		successRedirect : '/',
+		successRedirect : '/login',
 		failureRedirect : '/signup',
 		failureFlash : true
 	});
@@ -25,7 +25,7 @@ function getLogin(req, res, next) {
 //POST /login
 function postLogin(req, res, next) {
 	var loginStrategy = passport.authenticate('local-login', {
-		successRedirect : '/',
+		successRedirect : '/teamPage',
 		failureRedirect : '/login',
 		failureFlash : true
 	});
@@ -50,5 +50,6 @@ module.exports = {
 	getSignUp : getSignUp,
 	postSignUp : postSignUp,
 	getLogin : getLogin,
-	postLogin : postLogin
+	postLogin : postLogin,
+	getLogout : getLogout
 };

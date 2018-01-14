@@ -27,7 +27,10 @@ app.use(bodyParser.json());
 router.route('/search')
 	.get(teamController.searchMarvel);
 
-//Routes for Users **connects to users controller imported into this file
+//Page Flow
+router.get('/teamPage', function teamPage(req, res, next){
+	res.render('teamPage');
+});
 
 //user authentication function
 
