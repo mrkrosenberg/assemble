@@ -32,7 +32,7 @@ module.exports = function(passport){
 
 			if(user){
 				// console.log('super sanity check');
-				return callback(null, false, req.flash('signupMessage', 'This email is already in use'));
+				return callback(null, false, req.flash('signupMessage', 'User already exists'));
 			} else {
 				// console.log('new user created');
 				//If no matching document exists, create one
@@ -65,12 +65,12 @@ module.exports = function(passport){
 
 			//if no user is found
 			if(!user) {
-				return callback(null, false, req.flash('loginMessage', 'no user found'));
+				return callback(null, false, req.flash('loginMessage', 'User not found'));
 			}
 
 			//Wrong password
 			if (!user.validPassword(password)) {
-				return callback(null, false, req.flash('loginMessage', 'wrong password'));
+				return callback(null, false, req.flash('loginMessage', 'Password invalid'));
 			}
 
 			//if none of the other conditions are met, return the user object

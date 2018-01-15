@@ -1,10 +1,14 @@
 body {
-	background-color: black;
+	background-image: url("../images/mainBackground.png");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .mainContainer {
-	padding-bottom: 80px;
-	/*height: 80vh;*/
+	/*padding-bottom: 80px;*/
+	height: 100vh;
+	width: 100vw;
+	margin-bottom: 10px;
 }
 
 .formContainer {
@@ -17,21 +21,22 @@ form {
 
 input {
 	width: 100%;
+	margin: 20px auto;
 }
 
 .form {
-	background-color: yellow;
+	background-color: rgba(0, 0, 0, 0.5);
 	padding-top: 80px;
 	margin-top: 50px;
 }
 
 .footer {
+	position: relative;
 	height: 20vh;
-	background-color: red;
 }
 
 .marvel {
-	margin-top: 10%;
-	width: 50%;
+	position: absolute;
+	top: 70%;
 	background-color: green;
 }

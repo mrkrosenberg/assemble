@@ -1,9 +1,50 @@
- <% if (message.length > 0) { %>
-    <div class="alert alert-danger"><%= message %></div>
-  <% } %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<form action="/login" method="POST">
-	<input type="email" name="email">
-	<input type="password" name="password">
-	<button type="submit">Submit</button>
-</form>
+	//<!-- jQuery CDN -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+	//<!-- boostrap cdn -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script rel="stylesheet" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	//<!-- CSS -->
+	<link rel="stylesheet" href="../css/mainPage.css">
+
+	<title>Login Page</title>
+
+</head>
+<body>
+<main>
+	<div class="container mainContainer">
+		<div class="row formContainer">
+			<div class="col-xs-4"></div>
+			<div class="col-xs-4 form">
+				 <% if (message.length > 0) { %>
+    					<div class="alert alert-danger"><%= message %></div>
+  			<% } %>
+				<form action="/login" method="POST">
+					<div class="form-group">
+						<input type="email" name="email" placeholder="email">
+							<br>
+						<input type="password" name="password" placeholder="password">
+							<br>
+						<button type="submit">Log In</button>
+					</div>
+				</form>
+				<hr>
+				<div class="signUp">
+					<p>New User? <a href="/signup">Click Here to Sign up</a></p>
+				</div>
+			</div>
+			<div class="col-xs-4"></div>
+		</div>
+	</div>
+</main>	
+
+</body>
+</html>
