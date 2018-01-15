@@ -9,6 +9,7 @@ $(document).ready(function(){
 	$('.teamMember').on('submit', function(){
 		//show modal
 			//modal will alert: 'new team member added' || 'add hero to your team?'
+		//button on modal will close modal and dynamically populate carousel from database of characters
 	});
 
 let team = db.find({});
