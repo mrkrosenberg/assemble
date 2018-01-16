@@ -4,8 +4,8 @@ const crypto = require('crypto');
 const request = require('request');
 
 //requires api keys
-const priKey = require('../env.js').priKey;
-const pubKey = require('../env.js').pubKey;
+const priKey = process.env.priKey || require('../env.js').priKey;
+const pubKey = process.env.pubKey || require('../env.js').pubKey;
 
 //requires model schemas
 let db = require('../models');
