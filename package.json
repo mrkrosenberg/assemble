@@ -24,6 +24,7 @@
     "connect-flash": "^0.1.1",
     "crypto": "^1.0.1",
     "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "google-images": "^2.1.0",
