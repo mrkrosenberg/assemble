@@ -1,4 +1,10 @@
-.carousel-item {
-	/*height: 30%;*/
-	/*width: 30%;*/
+.team {
+	width: auto;
+	height: 500px;
+	max-height: 500px;
 }
+
+.row {
+	height: 30%;
+}
+
