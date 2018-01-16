@@ -5,6 +5,7 @@ const passport  = require('passport');
 const flash     = require('connect-flash');
 const morgan    = require('morgan');
 const session   = require('express-session');
+const dotenv = require('dotenv').config();
 
 
 //body parsers

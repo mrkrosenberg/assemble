@@ -24,7 +24,7 @@ module.exports = function(passport){
 		passwordField : 'password',
 		passReqToCallback : true
 	}, function(req, email, password, callback){  //callback is passport's done function
-		console.log(req);
+		// console.log(req);
 		//functionality to check for existing account/new account creationg
 		User.findOne({'email' : email}, function(err, user){
 			// console.log('santiy check');
