@@ -1,0 +1,39 @@
+body {
+	background-color: rgb(0, 0, 0);
+	text-align: center;
+}
+
+input {
+	display: block;
+	width: 100%;
+}
+
+.form {
+	padding-top: 40px;
+}
+
+#signupForm {
+	background-color: rgba(241, 29, 18, 0.5);
+	padding: 20px, auto;
+}
+
+.background {
+	height: 100vh;
+}
+
+#leftSide {
+	background-image: url('../images/ironman.jpg');
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#center {
+	background-color: black;
+}
+
+#rightSide {
+	background-image: url('../images/venom.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top right;
+}

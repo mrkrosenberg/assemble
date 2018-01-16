@@ -8,7 +8,7 @@ function getSignUp(req, res, next){
 //POST /signup
 function postSignUp(req, res, next){
 	let signupStrategy = passport.authenticate('local-signup', {
-		successRedirect : '/login',
+		successRedirect : '/teamPage',
 		failureRedirect : '/signup',
 		failureFlash : true
 	});

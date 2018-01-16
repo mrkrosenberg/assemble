@@ -53,9 +53,9 @@ function searchMarvel (req, res){
 		//creates new character model from CharacterSchema
 		var character = new db.Character({
 			name : result.data.results[0].name,
-			description : result.data.results[0].description,
-			image : charImage,
-			site : charSite
+			description : result.data.results[0].description
+			// image : ,
+			// site : 
 		});
 
 		newCharacter = character;

@@ -43,9 +43,10 @@ app.use(function(req, res, next){					//always include next in the parameters in
 
 //sets main endpoint to display index.html
 app.route('/', function homepage (req, res) {
-  res.sendFile(__dirname + '/public/index.html');
+  res.sendFile(__dirname + '/login.ejs');
 });
 
+//requires all the routing endpoints
 var routes = require('./config/routes.js');
 app.use(routes);
 

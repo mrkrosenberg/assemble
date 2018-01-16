@@ -1,10 +1,3 @@
-
-
-<!-- <form action="/signup" method="POST">
-	<input type="email" name="email">
-	<input type="password" name="password">
-	<button type="submit">Submit</button>
-</form> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,36 +13,50 @@
 	<script rel="stylesheet" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<!-- CSS -->
-	<link rel="stylesheet" href="./css/mainPage.css">
+	<link rel="stylesheet" href="./css/signup.css">
 
-	<title>Login Page</title>
+	<title>Create Account</title>
 
 </head>
 <body>
 <main>
 	<div class="container mainContainer">
-		<div class="row formContainer">
-			<div class="col-xs-4"></div>
-			<div class="col-xs-4 form">
-				 <% if (message.length > 0) { %>
+
+			<div class="col-sm-4 background" id="leftSide">
+				
+			</div>
+
+			<div class="col-sm-4 form background" id="center">
+				<h3>Create your account</h3>
+				<p>will your team fight for justice? or will they wreak havoc on the world?</p>
+				
+				<% if (message.length > 0) { %>
     				<div class="alert alert-danger"><%= message %></div>
   			<% } %>
-				<form action="/login" method="POST">
+
+				<form id="signupForm" action="/signup" method="POST">
 					<div class="form-group">
+						<label for="email">Enter email</label>
 						<input type="email" name="email" placeholder="email">
 							<br>
+						<label for="password">Create a password</label>
 						<input type="password" name="password" placeholder="password">
 							<br>
-						<button type="submit">Sign Up</button>
+						<label for="favCharacter">Who is your favorite Marvel character?</label>
+						<input type="text" name="favCharacter">
+							<br>
+						<label for="favSuperPower">If you could have one superpower, what would it be?</label>
+						<input type="text" name="favSuperPower">
+							<br>
+						<button type="submit">Create Account and Log In</button>
 					</div>
 				</form>
-				<hr>
-				<div class="signUp">
-					<p>New User? <a href="/signup">Click Here to Sign up</a></p>
-				</div>
 			</div>
-			<div class="col-xs-4"></div>
-		</div>
+			
+			<div class="col-sm-4 background" id="rightSide">
+				
+			</div>
+	
 	</div>
 
 </main>	

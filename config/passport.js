@@ -24,7 +24,7 @@ module.exports = function(passport){
 		passwordField : 'password',
 		passReqToCallback : true
 	}, function(req, email, password, callback){  //callback is passport's done function
-		// console.log(req);
+		console.log(req);
 		//functionality to check for existing account/new account creationg
 		User.findOne({'email' : email}, function(err, user){
 			// console.log('santiy check');
@@ -39,6 +39,8 @@ module.exports = function(passport){
 				var newUser = new User();  //uses the model in models/user.js as a constructor
 				newUser.email = email;  //newUser becomes User (with all its properties and values). User model has property local which has properties email and password
 				newUser.password = newUser.encrypt(password);
+				newUser.favCharacter = req.body.favCharacter;
+				newUser.favSuperPower = req.body.favSuperPower;
 
 				// console.log('encrypted');
 				
@@ -65,7 +67,7 @@ module.exports = function(passport){
 
 			//if no user is found
 			if(!user) {
-				return callback(null, false, req.flash('loginMessage', 'User not found'));
+				return callback(null, false, req.flash('loginMessage', 'User not found. Have you signed up?'));
 			}
 
 			//Wrong password

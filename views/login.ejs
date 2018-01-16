@@ -5,14 +5,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-	//<!-- jQuery CDN -->
+	<!-- jQuery CDN -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-	//<!-- boostrap cdn -->
+	<!-- boostrap cdn -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script rel="stylesheet" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	//<!-- CSS -->
+	<!-- CSS -->
 	<link rel="stylesheet" href="../css/mainPage.css">
 
 	<title>Login Page</title>
@@ -21,11 +21,13 @@
 <body>
 <main>
 	<div class="container mainContainer">
-		<div class="row formContainer">
+		
 			<div class="col-xs-4"></div>
+			
 			<div class="col-xs-4 form">
+				<h1>Log In</h1>
 				 <% if (message.length > 0) { %>
-    					<div class="alert alert-danger"><%= message %></div>
+    				<div class="alert alert-danger"><%= message %></div>
   			<% } %>
 				<form action="/login" method="POST">
 					<div class="form-group">
@@ -41,8 +43,9 @@
 					<p>New User? <a href="/signup">Click Here to Sign up</a></p>
 				</div>
 			</div>
+
 			<div class="col-xs-4"></div>
-		</div>
+		
 	</div>
 </main>	
 

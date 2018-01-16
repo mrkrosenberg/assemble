@@ -12,39 +12,48 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script rel="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<!-- CSS -->
+	<link rel="stylesheet" href="/css/teamPage.css">
+
 	<title>Your Team</title>
 	
 </head>
 <body>
 
 <!-- Display for Team -->
-	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-		  <ol class="carousel-indicators">
-		    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-		    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-		    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-		  </ol>
-		  <div class="carousel-inner">
-		    <div class="carousel-item item active">
-		      <img class="d-block w-100" src="..." alt="First slide">
-		    </div>
-		    <div class="carousel-item item">
-		      <img class="d-block w-100" src="..." alt="Second slide">
-		    </div>
-		    <div class="carousel-item item">
-		      <img class="d-block w-100" src="..." alt="Third slide">
-		    </div>
-		  </div>
-		  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		    <span class="sr-only">Previous</span>
-		  </a>
-		  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-		    <span class="sr-only">Next</span>
-		  </a>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				  <ol class="carousel-indicators">
+				    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				  </ol>
+				  <div class="carousel-inner">
+				    <div class="carousel-item item active">
+				      <img class="d-block w-100" src="/images/cap.jpg" alt="First slide">
+				    </div>
+				    <div class="carousel-item item">
+				      <img class="d-block w-100" src="/images/ironman.jpg" alt="Second slide">
+				    </div>
+				    <div class="carousel-item item">
+				      <img class="d-block w-100" src="/images/redskull.jpg" alt="Third slide">
+				    </div>
+				  </div>
+				  <!-- Controls (prev & next) -->
+				  <a class="left carousel-control" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				    <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
+				    <!-- <span class="sr-only">Previous</span> -->
+				  </a>
+				  <a class="right carousel-control" href="#carouselExampleIndicators" role="button" data-slide="next">
+				    <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+				    <!-- <span class="sr-only">Next</span> -->
+				  </a>
+			</div>
+		</div>
 	</div>
-
+</div>
 
 
 <!-- Character search form -->
@@ -61,7 +70,7 @@
 <div></div>
 
 <!-- JS -->
-	<script type="javascript" src="scripts/buildTeam.js"></script>
+	<script type="javascript" src="/scripts/buildTeam.js"></script>
 	
 
 </body>
