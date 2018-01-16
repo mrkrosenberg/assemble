@@ -7,6 +7,12 @@ const morgan    = require('morgan');
 const session   = require('express-session');
 const dotenv = require('dotenv').config();
 
+//db connection
+var mongoose = require("mongoose");
+mongoose.connect( process.env.MONGODB_URI || 
+                  process.env.MONGOLAB_URI || 
+                  process.env.MONGOHQ_URL || 
+                  "mongodb://localhost:27017/proj2");
 
 //body parsers
 var bodyParser = require('body-parser');
@@ -33,7 +39,6 @@ require('./config/passport')(passport);
 
 //makes the req.user object available everywhere
 app.use(function(req, res, next){					//always include next in the parameters in order to use it,
-	//
 	res.locals.currentUser = req.user;  //defines currentUser here as a property of res.locals
 	next();
 });
@@ -42,14 +47,9 @@ app.use(function(req, res, next){					//always include next in the parameters in
 //Routes
 /**************/
 
-//sets main endpoint to display index.html
-app.route('/', function homepage (req, res) {
-  res.sendFile(__dirname + '/login.ejs');
-});
-
 //requires all the routing endpoints
 var routes = require('./config/routes.js');
-app.use(routes);
+app.use('/', routes);
 
 
 // listen on port 3000

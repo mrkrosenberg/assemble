@@ -1,6 +1,6 @@
-const db = require('../../models');
-const mongoose = require('mongoose');
-
+// const db = require('../../models');
+// const mongoose = require('mongoose');
+console.log('hello');
 //waits for the page to load before running any javascript
 $(document).ready(function(){
 	console.log('hello world');

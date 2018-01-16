@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const request = require('request');
 
 //requires api keys
-const key = require('../env.js').key;
+const priKey = require('../env.js').priKey;
 const pubKey = require('../env.js').pubKey;
 
 //requires model schemas
@@ -20,7 +20,7 @@ function searchMarvel (req, res){
 	//hashing api keys and time stamp
 	var timeStamp = Date.now();
 	// console.log(timeStamp);
-	var string = timeStamp + key;
+	var string = timeStamp + (priKey + pubKey);
 	var hash = crypto.createHash('md5').update(string).digest('hex');
 	// console.log(hash);
 
@@ -49,7 +49,9 @@ function searchMarvel (req, res){
 		// var charSite = result.data.results[1] + '&ts=' + timeStamp + '&apikey=' + pubKey + '&hash=' + hash;
 		// console.log('character website: ', charSite);
 
+//Code an 'if' statement to check database for characters that match results.data info
 
+	// if (!db.findOne())
 		//creates new character model from CharacterSchema
 		var character = new db.Character({
 			name : result.data.results[0].name,
@@ -68,11 +70,12 @@ function searchMarvel (req, res){
 			}
 		});
 	});
-
-//Functionality for adding new team members to the member page
-	res.render('../views/teamPage.ejs');
-
 }
+
+//Controller for ajax call from teamPage to get all team member objects from database
+//function searchDb(){
+
+//};
 
 
 module.exports.searchMarvel = searchMarvel;
