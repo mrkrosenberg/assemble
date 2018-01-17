@@ -8,6 +8,9 @@
 <!-- jQuery CDN -->
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
+<!-- JS -->
+	<script type="text/javascript" src="/scripts/buildTeam.js"></script>
+	
 <!-- Bootstrap CDN's -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script rel="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -19,6 +22,26 @@
 	
 </head>
 <body>
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+
+		<div class="navbar-header">
+			<a href="/" class="navbar-brand"></a>
+		</div>
+		<div>
+			<ul class="navbar-nav">
+				<li class="active">
+					<a href="#">Team Page</a>
+				</li>
+				<li>
+					<a href="#">Log Out</a>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+</nav>
 
 <!-- Display for Team -->
 <div class="container">
@@ -60,7 +83,7 @@
 	<% if (message.length > 0) { %>
     	<div class="alert alert-danger"><%= message %></div>
   	<% } %>
-  	
+
 	<form class="teamMember" action="/search" method="GET">
 		<label for="searchName">Search for Character</label>
 			<input type="text" name="searchName">
@@ -72,9 +95,7 @@
 <!-- Character selected modal -->
 <div></div>
 
-<!-- JS -->
-	<script type="javascript" src="/scripts/buildTeam.js"></script>
-	
+
 
 </body>
 </html>

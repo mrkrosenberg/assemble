@@ -44,13 +44,9 @@ router.route('/login')
 	.get(usersController.getLogin)
 	.post(usersController.postLogin);
 
-//router.route('/logout')
-	//.get(controllers.function)
-	//.post(controllers.function)
-
-//router.route('/secret')
-	//.get(userAuthentication, controllers.function)
-
+router.route('/logout')
+	.get(usersController.getLogout)
+	.post(usersController.getLogout);
 
 //Route for ajax call to database (get team member info from database to populate "cards")
 //.get(teamController.)
