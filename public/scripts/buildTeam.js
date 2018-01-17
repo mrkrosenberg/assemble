@@ -1,5 +1,3 @@
-// const db = require('../../models');
-// const mongoose = require('mongoose');
 console.log('hello');
 //waits for the page to load before running any javascript
 $(document).ready(function(){
@@ -12,12 +10,7 @@ $(document).ready(function(){
 		//button on modal will close modal and dynamically populate carousel from database of characters
 	});
 
-let team = db.find({});
-			console.log(team);
-		team.forEach(function (member){
-			//create a carousel element for each object 
-			//append each new element to the carousel on teamPage
-		});
+
 
 
 });

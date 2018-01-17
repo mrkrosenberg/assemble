@@ -57,6 +57,10 @@
 
 <!-- Character search form -->
 <div>
+	<% if (message.length > 0) { %>
+    	<div class="alert alert-danger"><%= message %></div>
+  	<% } %>
+  	
 	<form class="teamMember" action="/search" method="GET">
 		<label for="searchName">Search for Character</label>
 			<input type="text" name="searchName">
