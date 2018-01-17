@@ -53,3 +53,4 @@ module.exports = {
 	postLogin : postLogin,
 	getLogout : getLogout
 };
+

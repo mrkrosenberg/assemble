@@ -8,3 +8,15 @@
 	height: 30%;
 }
 
+ul {
+	list-style-type: none;
+}
+
+li {
+	margin: 10px 10px;
+}
+
+.icon {
+	height: 30px;
+}
+

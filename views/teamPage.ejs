@@ -23,19 +23,21 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 
 		<div class="navbar-header">
-			<a href="/" class="navbar-brand"></a>
+			<a href="/teamPage" class="navbar-brand">
+				<img class="icon" src="/images/shield.png" alt="">
+			</a>
 		</div>
 		<div>
 			<ul class="navbar-nav">
 				<li class="active">
-					<a href="#">Team Page</a>
+					<a href="/teamPage">Team Page</a>
 				</li>
 				<li>
-					<a href="#">Log Out</a>
+					<a href="/logout">Log Out</a>
 				</li>
 			</ul>
 		</div>
@@ -80,10 +82,6 @@
 
 <!-- Character search form -->
 <div>
-	<% if (message.length > 0) { %>
-    	<div class="alert alert-danger"><%= message %></div>
-  	<% } %>
-
 	<form class="teamMember" action="/search" method="GET">
 		<label for="searchName">Search for Character</label>
 			<input type="text" name="searchName">

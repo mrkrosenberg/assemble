@@ -14,7 +14,8 @@ const app = express();
 const teamController = require('../controllers/team');
 const usersController = require('../controllers/user');
 
-
+//requires database connection
+const db = require('../models');
 
 //body parsers
 var bodyParser = require('body-parser');
@@ -50,6 +51,53 @@ router.route('/logout')
 
 //Route for ajax call to database (get team member info from database to populate "cards")
 //.get(teamController.)
+
+//Character RESTful routes (Index, Show, Post, Put, Delete)
+router.get('/team', function indexAll(req, res){
+	db.Character.find({}, function(err, characters){
+		res.json(characters);
+	});
+});
+
+router.get('/team/:id', function showCharacter(req, res){
+	db.Character.findOne({_id : req.params.id}, function(err, character){
+		res.json(character);
+	});
+});
+
+router.post('/team', function createCharacter(req, res){
+	var newCharacter = new db.Character ({
+		name : req.body.name,
+		description : req.body.description,
+		image : req.body.image,
+		site : req.body.site
+	});
+	db.Character.create(newCharacter, function(err, character){
+		if (err){
+			return console.log('Error: ' + err);
+		} 
+		console.log('Saved ' + character + ' to database');
+		res.json(character);
+	});
+});
+
+router.put('/team/:id', function updateCharacter(req, res){
+	// var updatedChar = req.params.id;
+	db.Character.findOneAndUpdate({_id: req.params.id}, {$set: {name : req.body.name, description : req.body.description}}, 
+		function(err, character){
+			if (err) {
+				return console.log(err);
+			}
+			res.json(character);
+		});
+});
+
+router.delete('/team/:id', function deleteCharacter(req, res){
+	db.Character.findOneAndRemove({_id : req.params.id}, function(err, character){
+		res.json(character + 'deleted');
+	});
+});
+
 
 
 //exports
