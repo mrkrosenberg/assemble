@@ -36,9 +36,9 @@ function postLogin(req, res, next) {
 //*************************
 
 //GET /logout
-function getLogout(request, response) {
-	request.logout();
-	response.redirect('/');
+function getLogout(req, res) {
+	req.logout();
+	res.redirect('/');
 }
 
 //*************************

@@ -55,12 +55,18 @@ router.route('/logout')
 //Character RESTful routes (Index, Show, Post, Put, Delete)
 router.get('/team', function indexAll(req, res){
 	db.Character.find({}, function(err, characters){
+		if (err) {
+			console.log('Error: ' + err);
+		}
 		res.json(characters);
 	});
 });
 
 router.get('/team/:id', function showCharacter(req, res){
 	db.Character.findOne({_id : req.params.id}, function(err, character){
+		if (err) {
+			console.log('Error: ' + err);
+		}
 		res.json(character);
 	});
 });

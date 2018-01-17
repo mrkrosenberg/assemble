@@ -1,5 +1,6 @@
 //dependencies
 const express = require('express');
+const app = express();
 const crypto = require('crypto');
 const request = require('request');
 
@@ -45,7 +46,16 @@ function searchMarvel (req, res){
 		// console.log(typeof(results));
 		// console.log(results.data.results[0].name);
 		// console.log(body);
-
+		// console.log(result.data.results[0].name);
+		
+		// var database = request('/team', function(err, res, info){
+		// 	db.Character.findOne({name : result.data.results[0].name}, function(err, character){
+		// 		console.log('the results are: ' + character);
+		// 		// return character;
+		// 	});
+		// });
+		// console.log('tell em: ' + database);
+		
 //saves image url as charImage
 		var charImage = result.data.results[0].thumbnail.path + '.' + result.data.results[0].thumbnail.extension;
 		// console.log(charImage);
@@ -58,14 +68,14 @@ function searchMarvel (req, res){
 //creates new character only if character does not exist in database
 
 		//creates new character model from CharacterSchema
-		var character = new db.Character({
+		var newCharacter = new db.Character({
 			name : result.data.results[0].name,
 			description : result.data.results[0].description,
 			image : charImage
 			// site : 
 		});
 
-			character.save(function(err, char){
+			newCharacter.save(function(err, char){
 				if (err) {
 					console.log(err);
 				} else {
