@@ -7,6 +7,8 @@ const request = require('request');
 //requires api keys
 const priKey = process.env.priKey || require('../env.js').priKey;
 const pubKey = process.env.pubKey || require('../env.js').pubKey;
+const gKey = process.env.gKey || require('../env.js').gKey;
+const cse = process.env.cse || require('../env.js').cse;
 
 //requires model schemas
 let db = require('../models');
@@ -96,5 +98,6 @@ function searchMarvel (req, res){
 
 module.exports.searchMarvel = searchMarvel;
 module.exports.searchDb = searchDb;
+
 
 
