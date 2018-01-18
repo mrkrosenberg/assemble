@@ -2,13 +2,13 @@ const passport = require('passport');
 
 //GET /signup
 function getSignUp(req, res, next){
-	res.render('signup', { message: req.flash('signupMessage') });
+	res.render('signup', { message: req.flash('signupMessage')});
 }
 
 //POST /signup
 function postSignUp(req, res, next){
 	let signupStrategy = passport.authenticate('local-signup', {
-		successRedirect : '/teamPage',
+		successRedirect : '/searchDB',
 		failureRedirect : '/signup',
 		failureFlash : true
 	});
@@ -25,7 +25,7 @@ function getLogin(req, res, next) {
 //POST /login
 function postLogin(req, res, next) {
 	var loginStrategy = passport.authenticate('local-login', {
-		successRedirect : '/teamPage',
+		successRedirect : '/searchDB',
 		failureRedirect : '/login',
 		failureFlash : true
 	});

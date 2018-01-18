@@ -57,17 +57,14 @@
 				  </ol>
 
 				  <div class="carousel-inner">
-
-					<div class="carousel-item item active team">
+				  	<div class="carousel-item item active team">
  				      <img class="d-block w-100" src="/images/cap.jpg" alt="First slide">
  				    </div>
- 				    <div class="carousel-item item team">
- 				      <img class="d-block w-100" src="/images/ironman.jpg" alt="Second slide">
- 				    </div>
- 				    <div class="carousel-item item team">
- 				      <img class="d-block w-100" src="/images/redskull.jpg" alt="Third slide">
- 				    </div>
- 				    
+ 				    <% characters.forEach(function(character){ %>
+ 				    	$('<div class="carousel-item item team"><img class="d-block w-100" src="/images/captain.jpg"alt=""></div>')
+ 				    <% }) %>
+					
+
 				  </div>
 				  
 				  <a class="left carousel-control" href="#carouselExampleIndicators" role="button" data-slide="prev">

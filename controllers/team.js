@@ -48,11 +48,11 @@ function searchMarvel (req, res){
 		// console.log(typeof(results));
 		// console.log(results.data.results[0].name);
 
-//saves image url as charImage
+// saves image url as charImage
 		var charImage = result.data.results[0].thumbnail.path + '.' + result.data.results[0].thumbnail.extension;
 		// console.log(charImage);
 		
-//****** attempt at preventing duplicates in database	
+// preventing duplicates in database	
 			var database = request('/team', function(err, response, info){
 				db.Character.findOne({name : result.data.results[0].name}, function(err, character){
 					if (err) {
@@ -80,16 +80,22 @@ function searchMarvel (req, res){
 
 					});
 				} else { 
-					res.send('Character is already on your team')};	
+					// req.flash('duplicateMessage', 'Character is already on your team');
+					res.redirect('/searchDB');
+					//flash message - {message : req.flash('duplicateMessage')},
+					//this isn't working error: express deprecated res.redirect(url, status): Use res.redirect(status, url) instead controllers/team.js:84:10
+//events.js:183
+     // throw er; // Unhandled 'error' event
+     // ^
+
+//RangeError: Invalid status code: /teamPage
+				}
+
 			});
+		});
 	});
-		
-
-
-		
-	});
-	
 }
+
 
 
 module.exports.searchMarvel = searchMarvel;
