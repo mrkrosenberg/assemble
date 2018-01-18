@@ -19,7 +19,7 @@ function searchMarvel (req, res){
 	// console.log('pubKey is ', pubKey);
 
 //****************************
-// setting the api key
+// setting the api key/url
 //****************************
 
 	//hashing api keys and time stamp
@@ -39,65 +39,65 @@ function searchMarvel (req, res){
 
 	
 	// res.json(team);
-	request(apiUrl, function(err, response, body){
+	request(apiUrl, function(err, APIresponse, body){
 		if (err) {
 			console.log("Error: " + err);
 		}
-		// console.log(typeof(body));
+
 		var result = JSON.parse(body);
 		// console.log(typeof(results));
 		// console.log(results.data.results[0].name);
-		// console.log(body);
-		// console.log(result.data.results[0].name);
-		
-		// var database = request('/team', function(err, res, info){
-		// 	db.Character.findOne({name : result.data.results[0].name}, function(err, character){
-		// 		console.log('the results are: ' + character);
-		// 		// return character;
-		// 	});
-		// });
-		// console.log('tell em: ' + database);
-		
+
 //saves image url as charImage
 		var charImage = result.data.results[0].thumbnail.path + '.' + result.data.results[0].thumbnail.extension;
 		// console.log(charImage);
+		
+//****** attempt at preventing duplicates in database	
+			var database = request('/team', function(err, response, info){
+				db.Character.findOne({name : result.data.results[0].name}, function(err, character){
+					if (err) {
+						console.log('Error: ' + err);
+					}
+					if (!character) {
+					// console.log('the results are: ' + character);
+				//nest the character creation/saving function in here to do all this once the check has been made
+					//creates new character model from CharacterSchema
+			var newCharacter = new db.Character({
+				name : result.data.results[0].name,
+				description : result.data.results[0].description,
+				image : charImage
+				// site : 
+			});
+
+				newCharacter.save(function(err, char){
+					if (err) {
+						console.log(err);
+					} else {
+						console.log('New character ' + char.name + ' saved to database');
+					}
+
+					res.redirect('/searchDB');
+
+					});
+				} else { 
+					res.send('Character is already on your team')};	
+			});
+	});
+		
+
+
+		
+	});
+	
+}
+
+
+module.exports.searchMarvel = searchMarvel;
 
 //saves character's marvel page url **** not working
 		// console.log(result.data.results[1]);
 		// var charSite = result.data.results[1] + '&ts=' + timeStamp + '&apikey=' + pubKey + '&hash=' + hash;
 		// console.log('character website: ', charSite);
-
-//creates new character only if character does not exist in database
-
-		//creates new character model from CharacterSchema
-		var newCharacter = new db.Character({
-			name : result.data.results[0].name,
-			description : result.data.results[0].description,
-			image : charImage
-			// site : 
-		});
-
-			newCharacter.save(function(err, char){
-				if (err) {
-					console.log(err);
-				} else {
-					console.log('New character ' + char.name + ' saved to database');
-				}
-			});
-	});
-
-	res.render('teamPage');
-}
-
-//Controller for ajax call from teamPage to get all team member objects from database
-	function searchDb(){
-		var team = db.Character.find({});
-		console.log(team);
-	}
-
-
-module.exports.searchMarvel = searchMarvel;
-module.exports.searchDb = searchDb;
 
 
 

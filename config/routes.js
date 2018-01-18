@@ -53,16 +53,16 @@ router.route('/logout')
 //.get(teamController.)
 
 //Character RESTful routes (Index, Show, Post, Put, Delete)
-router.get('/team', function indexAll(req, res){
+router.get('/searchDB', function indexAll(req, res){
 	db.Character.find({}, function(err, characters){
 		if (err) {
 			console.log('Error: ' + err);
 		}
-		res.json(characters);
+		res.render('teamPage', {characters});
 	});
 });
 
-router.get('/team/:id', function showCharacter(req, res){
+router.get('/searchDB/:id', function showCharacter(req, res){
 	db.Character.findOne({_id : req.params.id}, function(err, character){
 		if (err) {
 			console.log('Error: ' + err);
@@ -71,7 +71,7 @@ router.get('/team/:id', function showCharacter(req, res){
 	});
 });
 
-router.post('/team', function createCharacter(req, res){
+router.post('/searchDB', function createCharacter(req, res){
 	var newCharacter = new db.Character ({
 		name : req.body.name,
 		description : req.body.description,
@@ -87,7 +87,7 @@ router.post('/team', function createCharacter(req, res){
 	});
 });
 
-router.put('/team/:id', function updateCharacter(req, res){
+router.put('/searchDB/:id', function updateCharacter(req, res){
 	// var updatedChar = req.params.id;
 	db.Character.findOneAndUpdate({_id: req.params.id}, {$set: {name : req.body.name, description : req.body.description}}, 
 		function(err, character){
@@ -98,7 +98,7 @@ router.put('/team/:id', function updateCharacter(req, res){
 		});
 });
 
-router.delete('/team/:id', function deleteCharacter(req, res){
+router.delete('/searchDB/:id', function deleteCharacter(req, res){
 	db.Character.findOneAndRemove({_id : req.params.id}, function(err, character){
 		res.json(character + 'deleted');
 	});
