@@ -53,7 +53,7 @@ function searchMarvel (req, res){
 		// console.log(charImage);
 		
 // preventing duplicates in database	
-			var database = request('/team', function(err, response, info){
+			var database = request('/searchDB', function(err, response, info){
 				db.Character.findOne({name : result.data.results[0].name}, function(err, character){
 					if (err) {
 						console.log('Error: ' + err);
@@ -62,12 +62,12 @@ function searchMarvel (req, res){
 					// console.log('the results are: ' + character);
 				//nest the character creation/saving function in here to do all this once the check has been made
 					//creates new character model from CharacterSchema
-			var newCharacter = new db.Character({
-				name : result.data.results[0].name,
-				description : result.data.results[0].description,
-				image : charImage
-				// site : 
-			});
+							var newCharacter = new db.Character({
+								name : result.data.results[0].name,
+								description : result.data.results[0].description,
+								image : charImage
+								// site : 
+							});
 
 				newCharacter.save(function(err, char){
 					if (err) {
@@ -80,6 +80,7 @@ function searchMarvel (req, res){
 
 					});
 				} else { 
+					console.log('already exists');
 					// req.flash('duplicateMessage', 'Character is already on your team');
 					res.redirect('/searchDB');
 					//flash message - {message : req.flash('duplicateMessage')},

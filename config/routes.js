@@ -49,10 +49,10 @@ router.route('/logout')
 	.get(usersController.getLogout)
 	.post(usersController.getLogout);
 
-//Route for ajax call to database (get team member info from database to populate "cards")
-//.get(teamController.)
+
 
 //Character RESTful routes (Index, Show, Post, Put, Delete)
+//gets all characters from database
 router.get('/searchDB', function indexAll(req, res){
 	db.Character.find({}, function(err, characters){
 		if (err) {
@@ -62,6 +62,7 @@ router.get('/searchDB', function indexAll(req, res){
 	});
 });
 
+//gets one specific character from database
 router.get('/searchDB/:id', function showCharacter(req, res){
 	db.Character.findOne({_id : req.params.id}, function(err, character){
 		if (err) {
@@ -71,6 +72,7 @@ router.get('/searchDB/:id', function showCharacter(req, res){
 	});
 });
 
+//creates a new character and saves to database
 router.post('/searchDB', function createCharacter(req, res){
 	var newCharacter = new db.Character ({
 		name : req.body.name,
@@ -87,6 +89,7 @@ router.post('/searchDB', function createCharacter(req, res){
 	});
 });
 
+//updates an existing character
 router.put('/searchDB/:id', function updateCharacter(req, res){
 	// var updatedChar = req.params.id;
 	db.Character.findOneAndUpdate({_id: req.params.id}, {$set: {name : req.body.name, description : req.body.description}}, 
@@ -98,6 +101,7 @@ router.put('/searchDB/:id', function updateCharacter(req, res){
 		});
 });
 
+//deletes a character document from the database
 router.delete('/searchDB/:id', function deleteCharacter(req, res){
 	db.Character.findOneAndRemove({_id : req.params.id}, function(err, character){
 		res.json(character + 'deleted');
