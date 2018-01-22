@@ -26,7 +26,7 @@ app.engine('ejs', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 //sets up a user session to store data and cookies
-app.use(session({ secret: 'WDI-GENERAL-ASSEMBLY-EXPRESS' })); 
+app.use(session({ secret: 'Avengers Assemble!' })); 
 app.use(passport.initialize());
 app.use(passport.session()); 
 app.use(flash()); 
