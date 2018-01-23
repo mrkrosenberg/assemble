@@ -19,7 +19,7 @@ function searchMarvel (req, res){
 	// console.log('pubKey is ', pubKey);
 
 //****************************
-// setting the api key/url
+// defining the api key/url
 //****************************
 
 	//hashing api keys and time stamp
@@ -60,6 +60,7 @@ function searchMarvel (req, res){
 					}
 					if (!character) {
 					// console.log('the results are: ' + character);
+
 				//nest the character creation/saving function in here to do all this once the check has been made
 					//creates new character model from CharacterSchema
 							var newCharacter = new db.Character({
@@ -101,10 +102,6 @@ function searchMarvel (req, res){
 
 module.exports.searchMarvel = searchMarvel;
 
-//saves character's marvel page url **** not working
-		// console.log(result.data.results[1]);
-		// var charSite = result.data.results[1] + '&ts=' + timeStamp + '&apikey=' + pubKey + '&hash=' + hash;
-		// console.log('character website: ', charSite);
 
 
 

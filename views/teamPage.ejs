@@ -50,18 +50,13 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-				  <ol class="carousel-indicators">
-				    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-				    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-				    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-				  </ol>
-
 				  <div class="carousel-inner">
 				  	<div class="carousel-item item active team">
  				      <img class="d-block w-100" src="/images/cap.jpg" alt="First slide">
  				    </div>
  				    <% characters.forEach(function(character){ %>
- 				    	$('<div class="carousel-item item team"><img class="d-block w-100" src="/images/captain.jpg "alt=""></div>')
+ 				    	<% console.log(character.name) %>
+ 				    	<div class="carousel-item item team"><span><%=character.name%></span><img class="d-block w-100" src=<%=character.image%> alt=""></div> 
  				    <% }) %>
 					
 
