@@ -27,7 +27,7 @@
 	<div class="container-fluid">
 
 		<div class="navbar-header">
-			<a href="/teamPage" class="navbar-brand">
+			<a href="/searchDB" class="navbar-brand">
 				<img class="icon" src="/images/shield.png" alt="">
 			</a>
 		</div>
@@ -56,7 +56,7 @@
  				    </div>
  				    <% characters.forEach(function(character){ %>
  				    	<% console.log(character.name) %>
- 				    	<div class="carousel-item item team"><span><%=character.name%></span><img class="d-block w-100" src=<%=character.image%> alt=""></div> 
+ 				    	<div class="carousel-item item team"><span class="characterName"><%=character.name%></span><img class="d-block w-100" src=<%=character.image%> alt=""></div> 
  				    <% }) %>
 					
 

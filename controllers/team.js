@@ -46,7 +46,7 @@ function searchMarvel (req, res){
 
 		var result = JSON.parse(body);
 		// console.log(typeof(results));
-		// console.log(results.data.results[0].name);
+		// console.log(result.data);
 
 // saves image url as charImage
 		var charImage = result.data.results[0].thumbnail.path + '.' + result.data.results[0].thumbnail.extension;
